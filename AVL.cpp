@@ -1,22 +1,21 @@
 #include <iostream>
 using namespace std;
-class arbore
-{
+class arbore {
 public:
-	struct nod
-	{
+
+	struct nod {
 		int cheie, hs, hd;
 		nod *st, *dr, *parinte;
 	};
+	
 	nod* radacina = NULL;
-	arbore()
-	{
+	arbore() {
 		nod* st = NULL;
 		nod* dr = NULL;
 		int cheie = 0;
 	}
-	void inaltime(nod *a)
-	{
+	
+	void inaltime(nod *a) {
 		nod *x = NULL, *y = NULL;
 		x = a;
 		if(x->st!=NULL)
@@ -34,13 +33,13 @@ public:
 				x = y;
 			}
 	}
-	int factor(nod *a)
-	{
+	
+	int factor(nod *a) {
 		inaltime(a);
 		return a->hd - a->hs;
 	}
-	void insertie(nod *k)
-	{
+	
+	void insertie(nod *k) {
 		nod *radacina, *nodcurent, *pcurent;
 		if (radacina != NULL)
 		{
@@ -76,8 +75,8 @@ public:
 		else
 			radacina = k;
 	}
-	nod* rotatiedr(nod *k)
-	{
+	
+	nod* rotatiedr(nod *k) {
 		nod* temp = k->st;
 		k->st = temp->dr;
 		temp->dr = k;
@@ -85,8 +84,8 @@ public:
 		inaltime(temp);
 		return temp;
 	}
-	nod* rotatiest(nod *k)
-	{
+	
+	nod* rotatiest(nod *k) {
 		nod* temp = k->dr;
 		k->dr = temp->st;
 		temp->st = k;
@@ -95,8 +94,7 @@ public:
 		return temp;
 	}
 
-	void afisare(nod *k)
-	{
+	void afisare(nod *k) {
 		if (k != NULL)
 		{
 			nod *nodcurent = k, *pcurent = k->parinte;
