@@ -48,9 +48,9 @@ public:
 			nodcurent = radacina;
 			if (k->cheie < nodcurent->cheie)
 			{
-				inaltime(nodcurent);
 				while (nodcurent)
 				{
+					inaltime(nodcurent);
 					if (factor(nodcurent) != -2 || factor(nodcurent) != 2)
 					{
 						pcurent = nodcurent;
