@@ -8,6 +8,7 @@ public:
 		int cheie, hs, hd;
 		nod *st, *dr, *parinte;
 	};
+	nod* radacina = NULL;
 	arbore()
 	{
 		nod* st = NULL;
@@ -42,7 +43,6 @@ public:
 	void insertie(nod *k)
 	{
 		nod *radacina, *nodcurent, *pcurent;
-		bool ok = 0;
 		if (radacina != NULL)
 		{
 			nodcurent = radacina;
@@ -95,30 +95,31 @@ public:
 		inaltime(temp);
 		return temp;
 	}
-	nod* afisare(nod *k)
+
+nod* afisare(nod *k)
+{
+	if (k != NULL)
 	{
-		if(k!=NULL)
+		nod *nodcurent = k, *pcurent = k->parinte;
+		while (nodcurent)
 		{
-			nod *nodcurent=k, *pcurent=k->parinte;
-			while(nodcurent)
+			cout << nodcurent->cheie << endl;
+			if (nodcurent->st != NULL)
 			{
-				cout<<nodcurent->cheie<< endl;
-				if(nodcurent->st!=NULL)
-				{
-					pcurent=nodcurent;
-					nodcurent=nodcurent->st;
-				}
-				else if(nodcurent->dr!=NULL)
-				{	
-					pcurent=nodcurent;
-					nodcurent=nodcurent->dr;
-				}
-				else 
-				{
-					nodcurent=pcurent;
-					pcurent=pcurent->parinte;
-				}
+				pcurent = nodcurent;
+				nodcurent = nodcurent->st;
+			}
+			else if (nodcurent->dr != NULL)
+			{
+				pcurent = nodcurent;
+				nodcurent = nodcurent->dr;
+			}
+			else
+			{
+				nodcurent = pcurent;
+				pcurent = pcurent->parinte;
 			}
 		}
 	}
+}
 };
