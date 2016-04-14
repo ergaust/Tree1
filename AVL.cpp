@@ -14,7 +14,6 @@ public:
 		nod* st = NULL;
 		nod* dr = NULL;
 		int cheie = 0;
-		int h = 0;
 	}
 	void inaltime(nod *a)
 	{
