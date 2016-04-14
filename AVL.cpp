@@ -96,30 +96,30 @@ public:
 		return temp;
 	}
 
-nod* afisare(nod *k)
-{
-	if (k != NULL)
+	void afisare(nod *k)
 	{
-		nod *nodcurent = k, *pcurent = k->parinte;
-		while (nodcurent)
+		if (k != NULL)
 		{
-			cout << nodcurent->cheie << endl;
-			if (nodcurent->st != NULL)
+			nod *nodcurent = k, *pcurent = k->parinte;
+			while (nodcurent)
 			{
-				pcurent = nodcurent;
-				nodcurent = nodcurent->st;
-			}
-			else if (nodcurent->dr != NULL)
-			{
-				pcurent = nodcurent;
-				nodcurent = nodcurent->dr;
-			}
-			else
-			{
-				nodcurent = pcurent;
-				pcurent = pcurent->parinte;
+				cout << nodcurent->cheie << endl;
+				if (nodcurent->st != NULL)
+				{
+					pcurent = nodcurent;
+					nodcurent = nodcurent->st;
+				}
+				else if (nodcurent->dr != NULL)
+				{
+					pcurent = nodcurent;
+					nodcurent = nodcurent->dr;
+				}
+				else
+				{
+					nodcurent = pcurent;
+					pcurent = pcurent->parinte;
+				}
 			}
 		}
 	}
-}
 };
